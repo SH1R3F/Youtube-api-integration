@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ env('APP_NAME') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
     <div class="absolute top-0 right-0 left-0 shadow-sm">
         <div class="container">
             <nav class="flex justify-between items-center py-4">
-                <a href="#" class="font-kenya text-4xl text-king-400">Social King</a>
+                <a href="/" class="font-kenya text-4xl text-king-400">Social King</a>
                 <ul class="flex gap-6">
                     <li class="pb-1 border-king-100 transition-all hover:border-b">
                         <a href="{{ route('login') }}" class="text-king-400">Login</a>
@@ -45,7 +45,7 @@
 
 
     <!-- Header -->
-    <header class=" h-screen"
+    <header class="h-screen"
         style="background: linear-gradient(#00000070,#00000070), url('{{ asset('images/header.jpg') }}'); background-size: cover;">
         <div class="flex items-center justify-center h-full px-10">
             <div class="text-center">
