@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::get('/auth/{provider}/redirect', [SocialiteController::class, 'redirect'])->where('provider', 'github');
+Route::get('/auth/{provide}/callback', [SocialiteController::class, 'callback'])->where('provider', 'github');
