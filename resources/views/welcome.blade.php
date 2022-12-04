@@ -31,14 +31,16 @@
         <div class="container">
             <nav class="flex justify-between items-center py-4">
                 <a href="/" class="font-kenya text-4xl text-king-400">Social King</a>
-                <ul class="flex gap-6">
-                    <li class="pb-1 border-king-100 transition-all hover:border-b">
-                        <a href="{{ route('login') }}" class="text-king-400">Login</a>
-                    </li>
-                    <li class="pb-1 border-king-100 transition-all hover:border-b">
-                        <a href="{{ route('register') }}" class="text-king-400">Register</a>
-                    </li>
-                </ul>
+                @guest
+                    <ul class="flex gap-6">
+                        <li class="pb-1 border-king-100 transition-all hover:border-b">
+                            <a href="{{ route('login') }}" class="text-king-400">Login</a>
+                        </li>
+                        <li class="pb-1 border-king-100 transition-all hover:border-b">
+                            <a href="{{ route('register') }}" class="text-king-400">Register</a>
+                        </li>
+                    </ul>
+                @endguest
             </nav>
         </div>
     </div><!-- Navbar -->
@@ -53,7 +55,7 @@
                     became so
                     much
                     easier</h1>
-                <a href="{{ route('register') }}"
+                <a href="{{ Auth::check() ? route('dashboard') : route('register') }}"
                     class="py-2 px-6 bg-king-300 text-slate-800 rounded-md hover:shadow-xl">Try
                     now</a>
             </div>

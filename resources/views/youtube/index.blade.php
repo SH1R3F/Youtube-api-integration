@@ -11,7 +11,6 @@
             <!-- Videos Fetch -->
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10 mb-5">
                 <form action="{{ route('youtube.videos') }}" method="GET">
-                    @csrf
                     <h1 class="text-3xl mb-5">Videos fetcher</h1>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
@@ -35,7 +34,6 @@
             <!-- Playlists Fetch -->
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
                 <form action="{{ route('youtube.playlists') }}" method="GET">
-                    @csrf
                     <h1 class="text-3xl mb-5">Playlists fetcher</h1>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
