@@ -29,5 +29,5 @@ Route::middleware([
 });
 
 
-Route::get('/auth/{provider}/redirect', [SocialiteController::class, 'redirect'])->where('provider', 'facebook|github');
-Route::get('/auth/{provide}/callback', [SocialiteController::class, 'callback'])->where('provider', 'facebook|github');
+Route::get('/auth/{provider}/redirect', [SocialiteController::class, 'redirect'])->where('provider', 'linkedin|github');
+Route::get('/auth/{provide}/callback', [SocialiteController::class, 'callback'])->where('provider', 'linkedin|github');
