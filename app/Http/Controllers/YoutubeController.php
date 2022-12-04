@@ -9,6 +9,19 @@ use App\Services\YoutubeService;
 class YoutubeController extends Controller
 {
 
+    public function videos(FetchChannelRequest $request, YoutubeService $service)
+    {
+        // Fetch playlists by channel id
+        $channelId = $request->channel_id;
+        $videos = $service->VideosByChannelId($channelId, $request->get('pageToken'));
+
+        if (isset($videos->error)) {
+            return redirect()->route('youtube')->withErrors(['videos_channel_id' => $videos->error->errors[0]->message]);
+        }
+
+        return view('youtube.videos', compact('videos', 'channelId'));
+    }
+
     public function playlists(FetchChannelRequest $request, YoutubeService $service)
     {
         // Fetch playlists by channel id
@@ -19,6 +32,6 @@ class YoutubeController extends Controller
             return redirect()->route('youtube')->withErrors(['playlists_channel_id' => $playlists->error->errors[0]->message]);
         }
 
-        return view('youtube.show', compact('playlists', 'channelId'));
+        return view('youtube.playlists', compact('playlists', 'channelId'));
     }
 }
