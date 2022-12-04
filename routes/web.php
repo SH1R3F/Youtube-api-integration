@@ -22,8 +22,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
     Route::view('/youtube', 'youtube.index')->name('youtube');
-    Route::get('/youtube/videos', [YoutubeController::class, 'videos'])->name('youtube.videos');
     Route::get('/youtube/playlists', [YoutubeController::class, 'playlists'])->name('youtube.playlists');
+    Route::get('/youtube/playlists/{playlist}', [YoutubeController::class, 'playlist'])->name('youtube.playlist');
+    Route::get('/youtube/videos', [YoutubeController::class, 'videos'])->name('youtube.videos');
     Route::get('/youtube/videos/{video}', [YoutubeController::class, 'show'])->name('youtube.show');
 });
 

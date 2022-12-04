@@ -9,10 +9,11 @@ class YoutubeService
 {
 
     private $endpoints = [
-        'channels.list'  => 'https://youtube.googleapis.com/youtube/v3/channels',
-        'search.list'    => 'https://youtube.googleapis.com/youtube/v3/search',
-        'playlists.list' => 'https://youtube.googleapis.com/youtube/v3/playlists',
-        'videos.list'    => 'https://youtube.googleapis.com/youtube/v3/videos',
+        'channels.list'      => 'https://youtube.googleapis.com/youtube/v3/channels',
+        'search.list'        => 'https://youtube.googleapis.com/youtube/v3/search',
+        'playlists.list'     => 'https://youtube.googleapis.com/youtube/v3/playlists',
+        'videos.list'        => 'https://youtube.googleapis.com/youtube/v3/videos',
+        'playlistItems.list' => 'https://youtube.googleapis.com/youtube/v3/playlistItems',
     ];
 
     public function ChannelInfo($channelId)
@@ -29,15 +30,32 @@ class YoutubeService
         return json_decode($response->body());
     }
 
-    public function VideoById($channelId)
+    public function VideoById($videoId)
     {
         $endpoint = $this->endpoints['videos.list'];
         $params = [
             'part' => 'snippet',
-            'id'   => $channelId,
+            'id'   => $videoId,
             'key'  => config('services.youtube.api_key')
         ];
 
+        $response = Http::withoutVerifying()->get($endpoint, $params);
+
+        return json_decode($response->body());
+    }
+
+    public function PlaylistById($playlistId, $pageToken)
+    {
+        $endpoint = $this->endpoints['playlistItems.list'];
+        $params = [
+            'part'       => 'snippet',
+            'playlistId' => $playlistId,
+            'key'        => config('services.youtube.api_key'),
+            'maxResults' => 8,
+        ];
+        if ($pageToken) {
+            $params['pageToken'] = $pageToken;
+        }
         $response = Http::withoutVerifying()->get($endpoint, $params);
 
         return json_decode($response->body());

@@ -16,12 +16,9 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
 
-
                 <h1 class="text-3xl my-3">
                     {{ $video->items[0]->snippet->channelTitle }}
                 </h1>
-
-
 
                 <h3 class="text-xl mt-3 mb-1 underline">Description</h3>
                 <p class="mb-7 text-gray-500 whitespace-pre-line">{{ $video->items[0]->snippet->description }}</p>

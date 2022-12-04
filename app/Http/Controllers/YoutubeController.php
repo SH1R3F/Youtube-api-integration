@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FetchChannelRequest;
+use Illuminate\Http\Request;
 use App\Services\YoutubeService;
+use App\Http\Requests\FetchChannelRequest;
 
 class YoutubeController extends Controller
 {
@@ -38,6 +39,15 @@ class YoutubeController extends Controller
         }
 
         return view('youtube.playlists', compact('channel', 'playlists', 'channelId'));
+    }
+
+    public function playlist(Request $request, $playlistId, YoutubeService $service)
+    {
+
+        $playlist = $service->PlaylistById($playlistId, $request->get('pageToken'));
+
+        // Fetch video information
+        return view('youtube.playlist', compact('playlist', 'playlistId'));
     }
 
     public function show($videoId, YoutubeService $service)
