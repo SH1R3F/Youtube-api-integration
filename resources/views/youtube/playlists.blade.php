@@ -8,6 +8,46 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
+
+                <h1 class="text-3xl mb-5">Channel info</h1>
+
+                <div class="overflow-x-auto relative">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <tbody>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row"
+                                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Channel Name
+                                </th>
+                                <td class="py-4 px-6">
+                                    {{ $channel->items[0]->snippet->title }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row"
+                                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Channel Description
+                                </th>
+                                <td class="py-4 px-6">
+                                    {{ $channel->items[0]->snippet->description }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white dark:bg-gray-800">
+                                <th scope="row"
+                                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Statistics
+                                </th>
+                                <td class="py-4 px-6">
+                                    Video count: {{ $channel->items[0]->statistics->videoCount }} <br />
+                                    Views count: {{ $channel->items[0]->statistics->viewCount }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="my-5">
+
                 <h1 class="text-3xl mb-5">Playlists</h1>
                 <div class=" grid grid-cols-4 gap-3">
                     @foreach ($playlists->items as $item)
