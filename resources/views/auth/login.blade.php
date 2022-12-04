@@ -68,6 +68,10 @@
                             class="bg-blue-800 text-white rounded-full hover:bg-blue-700 transition-all table-cell align-middle text-center h-9 w-9">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
+                        <a href="/auth/google/redirect"
+                            class="bg-gray-600 text-white rounded-full hover:bg-gray-500 transition-all table-cell align-middle text-center h-9 w-9">
+                            <i class="fa-brands fa-google"></i>
+                        </a>
                     </div>
                     <!-- Social Media Login -->
                 </x-jet-authentication-card>
