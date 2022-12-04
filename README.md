@@ -1,4 +1,4 @@
-#Youtube api integration
+# Youtube api integration
 <p>In this project I aimed to practice the following</p>
 <ul>
     <li>Authentication with Jetstream</li>
