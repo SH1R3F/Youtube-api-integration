@@ -24,6 +24,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::view('/youtube', 'youtube.index')->name('youtube');
     Route::get('/youtube/videos', [YoutubeController::class, 'videos'])->name('youtube.videos');
     Route::get('/youtube/playlists', [YoutubeController::class, 'playlists'])->name('youtube.playlists');
+    Route::get('/youtube/videos/{video}', [YoutubeController::class, 'show'])->name('youtube.show');
 });
 
 

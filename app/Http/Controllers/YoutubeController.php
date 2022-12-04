@@ -39,4 +39,17 @@ class YoutubeController extends Controller
 
         return view('youtube.playlists', compact('channel', 'playlists', 'channelId'));
     }
+
+    public function show($videoId, YoutubeService $service)
+    {
+
+        $video = $service->VideoById($videoId);
+
+        if (!$video->pageInfo->totalResults) {
+            abort(404, 'Video not found');
+        }
+
+        // Fetch video information
+        return view('youtube.video', compact('video'));
+    }
 }

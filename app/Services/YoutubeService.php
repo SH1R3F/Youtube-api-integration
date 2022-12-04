@@ -9,9 +9,10 @@ class YoutubeService
 {
 
     private $endpoints = [
-        'channels.list' => 'https://youtube.googleapis.com/youtube/v3/channels',
-        'search.list' => 'https://youtube.googleapis.com/youtube/v3/search',
+        'channels.list'  => 'https://youtube.googleapis.com/youtube/v3/channels',
+        'search.list'    => 'https://youtube.googleapis.com/youtube/v3/search',
         'playlists.list' => 'https://youtube.googleapis.com/youtube/v3/playlists',
+        'videos.list'    => 'https://youtube.googleapis.com/youtube/v3/videos',
     ];
 
     public function ChannelInfo($channelId)
@@ -19,6 +20,20 @@ class YoutubeService
         $endpoint = $this->endpoints['channels.list'];
         $params = [
             'part' => 'snippet,statistics',
+            'id'   => $channelId,
+            'key'  => config('services.youtube.api_key')
+        ];
+
+        $response = Http::withoutVerifying()->get($endpoint, $params);
+
+        return json_decode($response->body());
+    }
+
+    public function VideoById($channelId)
+    {
+        $endpoint = $this->endpoints['videos.list'];
+        $params = [
+            'part' => 'snippet',
             'id'   => $channelId,
             'key'  => config('services.youtube.api_key')
         ];
