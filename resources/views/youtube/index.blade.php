@@ -19,7 +19,7 @@
                         </label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            name="channel_id" type="text" placeholder="Channel ID" required>
+                            name="videos_channel_id" type="text" placeholder="Channel ID">
                         @error('videos_channel_id')
                             <div class="text-sm text-red-600">{{ $message }}</div>
                         @enderror
@@ -43,7 +43,7 @@
                         </label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            name="channel_id" type="text" placeholder="Channel ID" required>
+                            name="playlists_channel_id" type="text" placeholder="Channel ID" required>
                         @error('playlists_channel_id')
                             <div class="text-sm text-red-600">{{ $message }}</div>
                         @enderror

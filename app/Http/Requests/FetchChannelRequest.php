@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ChannelExistsRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FetchChannelRequest extends FormRequest
@@ -24,7 +25,14 @@ class FetchChannelRequest extends FormRequest
     public function rules()
     {
         return [
-            'channel_id' => 'required'
+            'videos_channel_id' => [
+                'filled',
+                new ChannelExistsRule
+            ],
+            'playlists_channel_id' => [
+                'filled',
+                new ChannelExistsRule
+            ]
         ];
     }
 }

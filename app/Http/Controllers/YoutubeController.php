@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\FetchChannelRequest;
 use App\Services\YoutubeService;
 
@@ -12,7 +11,7 @@ class YoutubeController extends Controller
     public function videos(FetchChannelRequest $request, YoutubeService $service)
     {
         // Fetch playlists by channel id
-        $channelId = $request->channel_id;
+        $channelId = $request->videos_channel_id;
 
         $channel = $service->ChannelInfo($channelId);
 
@@ -28,7 +27,7 @@ class YoutubeController extends Controller
     public function playlists(FetchChannelRequest $request, YoutubeService $service)
     {
         // Fetch playlists by channel id
-        $channelId = $request->channel_id;
+        $channelId = $request->playlists_channel_id;
 
         $channel = $service->ChannelInfo($channelId);
 
