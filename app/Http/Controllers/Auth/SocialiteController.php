@@ -27,6 +27,6 @@ class SocialiteController extends Controller
 
         Auth::login($authUser, true);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('youtube');
     }
 }

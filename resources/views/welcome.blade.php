@@ -55,7 +55,7 @@
                     became so
                     much
                     easier</h1>
-                <a href="{{ Auth::check() ? route('dashboard') : route('register') }}"
+                <a href="{{ Auth::check() ? route('youtube') : route('register') }}"
                     class="py-2 px-6 bg-king-300 text-slate-800 rounded-md hover:shadow-xl">Try
                     now</a>
             </div>
