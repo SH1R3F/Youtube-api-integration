@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\YoutubeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
-    Route::view('/youtube', 'youtube')->name('youtube');
+    Route::view('/youtube', 'youtube.index')->name('youtube');
+    Route::get('/youtube/playlists', [YoutubeController::class, 'playlists'])->name('youtube.playlists');
 });
 
 

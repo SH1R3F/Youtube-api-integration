@@ -18,7 +18,7 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased">
+<body class="antialiased font-roboto">
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">
